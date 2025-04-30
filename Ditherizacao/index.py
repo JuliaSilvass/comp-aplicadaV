@@ -1,9 +1,10 @@
 import cv2 as cv 
 import numpy as np
 import os 
+from PIL import Image
 
 # Verifica se o caminho da imagem existe
-caminho_img = r"C:\Users\elcabriton\Desktop\GIT\comp-aplicadaV\Ditherizacao\nicolas_cage.jpeg"
+caminho_img = r"comp-aplicadaV/Ditherizacao/nicolas_cage.jpeg"
 if not os.path.exists(caminho_img):
     print("Caminho da imagem não encontrado.")
     exit()
@@ -14,6 +15,11 @@ if img is None:
     print("Erro ao carregar a imagem.")
     exit()
 
+img_cinza = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+
+# Exibe e salva a imagem
+cv.imshow('Imagem em Cinza', img_cinza)
+cv.imwrite('imagem_cinza.png', img_cinza)
 
 # # acessa a matriz de pixels da imagem
 # matriz_pixels_blue = img[:, :, 0]
@@ -35,7 +41,7 @@ def quatizar_img(canal):
 # img_quantizada_green = quatizar_img(matriz_pixels_green)
 # img_quantizada_red = quatizar_img(matriz_pixels_red)
 
-img_quatizada_cinza = quatizar_img(cv.cvtColor(img, cv.COLOR_BGR2GRAY))
+img_quatizada_cinza = quatizar_img(img_cinza)
 
 #ditherizacao dos canais 
 
@@ -80,4 +86,17 @@ cv.imshow ('Imagem ditherizada', imagem_ditherizada_cinza)
 # cv.imshow('Nicolas Cage', img)
 cv.waitKey(50000)
 cv.destroyAllWindows()
+
+# Ditherização direta usando PIL
+def dithizacao_direta(img):
+    img_dither_pil = Image.open(img).convert("1", dither=Image.FLOYDSTEINBERG)
+    return img_dither_pil
+
+
+img_dither_pil = dithizacao_direta(img)
+
+cv.imwrite('imagem_ditherizada_direta.png', img_dither_pil)
+cv.imshow('Imagem ditherizada direta', img_dither_pil)
+cv.waitKey(50000)   
+cv.destroyAllWindows()   
 
