@@ -4,7 +4,7 @@ import os
 from ditherizacao import ditherizacao
 
 # Verifica se o caminho da imagem existe
-caminho_img = r"comp-aplicadaV/Ditherizacao/nicolas_cage.jpeg"
+caminho_img = r"comp-aplicadaV/Img/nicolas_cage.jpeg"
 if not os.path.exists(caminho_img):
     print("Caminho da imagem não encontrado.")
     exit()
@@ -38,9 +38,9 @@ match opcao:
         imagem_ditherizada_colorida = cv.merge((imagem_ditherizada__blue, imagem_ditherizada_green, imagem_ditherizada_red))
 
         print("Imagem ditherizada colorida")
-        cv.imwrite('imagem_ditherizada_colorida.png', imagem_ditherizada_colorida)
+        cv.imwrite('comp-aplicadaV/ImgDitherizada/imagem_ditherizada_colorida.png', imagem_ditherizada_colorida)
         cv.imshow ('Imagem ditherizada', imagem_ditherizada_colorida)
-        cv.waitKey(90000)   
+        cv.waitKey(9000)   
         cv.destroyAllWindows()  
         exit()
 
@@ -55,9 +55,9 @@ match opcao:
         imagem_ditherizada_cinza = ditherizacao(img_cinza)
 
         print("Imagem ditherizada em cinza")
-        cv.imwrite('imagem_ditherizada_cinza.png', imagem_ditherizada_cinza)
+        cv.imwrite('comp-aplicadaV/ImgDitherizada/imagem_ditherizada_cinza.png', imagem_ditherizada_cinza)
         cv.imshow ('Imagem ditherizada', imagem_ditherizada_cinza)
-        cv.waitKey(5000)   
+        cv.waitKey(9000)   
         cv.destroyAllWindows()  
         exit()
 
