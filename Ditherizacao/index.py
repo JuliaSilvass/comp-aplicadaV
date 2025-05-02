@@ -15,6 +15,13 @@ if img is None:
     print("Erro ao carregar a imagem.")
     exit()
 
+# Exibe a imagem original
+print("Imagem original, para continuar pressione qualquer tecla")
+cv.imshow ('Imagem carregada', img)
+cv.waitKey(4000)   
+cv.destroyAllWindows()
+
+# Captura a opção do usuário para ditherização
 opcao = input("Escolha a opção de cores ('1' para Colorida , '2' para Cinza): ")
 
 match opcao:
@@ -29,6 +36,7 @@ match opcao:
         matriz_pixels_red = img[:, :, 2]
         # print("Matriz de pixels da imagem (red):", matriz_pixels_red)
 
+        # Chama a função de ditherização para cada canal de cor
         print("ditherizando a imagem colorida")
         imagem_ditherizada__blue = ditherizacao(matriz_pixels_blue)
         imagem_ditherizada_green = ditherizacao(matriz_pixels_green)
@@ -40,7 +48,7 @@ match opcao:
         print("Imagem ditherizada colorida")
         cv.imwrite('comp-aplicadaV/ImgDitherizada/imagem_ditherizada_colorida.png', imagem_ditherizada_colorida)
         cv.imshow ('Imagem ditherizada', imagem_ditherizada_colorida)
-        cv.waitKey(9000)   
+        cv.waitKey(4000)   
         cv.destroyAllWindows()  
         exit()
 
@@ -49,15 +57,16 @@ match opcao:
         #converte a imagem para escala de cinza
         img_cinza = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
         cv.imshow('Imagem em Cinza', img_cinza)
-        cv.imwrite('imagem_cinza.png', img_cinza)
+        cv.imwrite('comp-aplicadaV/Img/imagem_cinza.png', img_cinza)
 
+        # Chama a função de ditherização para a imagem em escala de cinza
         print("ditherizando a imagem em cinza")
         imagem_ditherizada_cinza = ditherizacao(img_cinza)
 
         print("Imagem ditherizada em cinza")
         cv.imwrite('comp-aplicadaV/ImgDitherizada/imagem_ditherizada_cinza.png', imagem_ditherizada_cinza)
         cv.imshow ('Imagem ditherizada', imagem_ditherizada_cinza)
-        cv.waitKey(9000)   
+        cv.waitKey(4000)   
         cv.destroyAllWindows()  
         exit()
 

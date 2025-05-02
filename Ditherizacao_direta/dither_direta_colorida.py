@@ -42,6 +42,6 @@ imagem_ditherizada_colorida = cv.merge((img_dither_pil_blue, img_dither_pil_gree
 
 cv.imwrite('comp-aplicadaV/ImgDitherizadaDireta/imagem_ditherizada_colorida_pil.png', imagem_ditherizada_colorida)
 cv.imshow('Imagem Ditherizada Colorida', imagem_ditherizada_colorida)
-cv.waitKey(0)
+cv.waitKey(4000)
 cv.destroyAllWindows()
 
