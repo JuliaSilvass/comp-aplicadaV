@@ -1,9 +1,8 @@
-import cv2 as cv 
 import os 
 from PIL import Image
 
 # Verifica se o caminho da imagem existe
-caminho_img = r"C:\Users\elcabriton\Desktop\GIT\comp-aplicadaV\Ditherizacao\nicolas_cage.jpeg"
+caminho_img = r"comp-aplicadaV\Ditherizacao\nicolas_cage.jpeg"
 if not os.path.exists(caminho_img):
     print("Caminho da imagem não encontrado.")
     exit()
