@@ -26,12 +26,29 @@ pip install -r requirements.txt
 
 ## ▶️ Execução
 
-No terminal, execute o script principal:
+Para executar o código da Ditherização manual no terminal, execute o script principal:
 
 ```bash
-python Ditherizacao/index.py
+cd Ditherizacao
+python index.py
 ```
 Siga as instruções interativas para escolher entre imagem colorida ou em cinza.
+
+Para executar o código de comparação da ditherização usando a biblioteca PIL, vá até a pasta
+
+Colorida:
+```bash
+cd Ditherizacao_direta
+python dither_direta_colorida.py
+```
+
+ou 
+
+Em escala de cinza:
+```bash
+cd Ditherizacao_direta
+python dither_direta.py
+```
 
 ## 📁 Estrutura do Projeto
 
@@ -55,7 +72,7 @@ As imagens ditherizadas são salvas automaticamente na pasta de saída com nomes
 
 ## 📌 Requisitos
 
-Python 3.8 ou superior
+Python 3.10 ou superior
 OpenCV
 Pillow
 NumPy

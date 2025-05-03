@@ -4,7 +4,7 @@ import os
 from ditherizacao import ditherizacao
 
 # Verifica se o caminho da imagem existe
-caminho_img = r"comp-aplicadaV/Img/nicolas_cage.jpeg"
+caminho_img = r"../Img/nicolas_cage.jpeg"
 if not os.path.exists(caminho_img):
     print("Caminho da imagem não encontrado.")
     exit()
